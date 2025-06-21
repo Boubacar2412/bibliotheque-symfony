@@ -1,13 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Emprunt{% endblock %}
+{% block title %}Modifier Emprunt{% endblock %}
 
 {% block body %}
-    <h1>Edit Emprunt</h1>
+<div class="container py-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning text-dark">
+            <h2 class="mb-0">Modifier l'emprunt #{{ emprunt.id }}</h2>
+        </div>
 
-    {{ include('emprunt/_form.html.twig', {'button_label': 'Update'}) }}
+        <div class="card-body">
+            {{ include('emprunt/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        </div>
 
-    <a href="{{ path('app_emprunt_index') }}">back to list</a>
-
-    {{ include('emprunt/_delete_form.html.twig') }}
+        <div class="card-footer text-end">
+            <a href="{{ path('app_emprunt_index') }}" class="btn btn-secondary me-2">Retour à la liste</a>
+            {{ include('emprunt/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}

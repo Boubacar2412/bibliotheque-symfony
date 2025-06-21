@@ -1,4 +1,19 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="mb-3">
+    {{ form_label(form.dateEmprunt, 'Date d\'emprunt', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.dateEmprunt, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.dateEmprunt) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.dateRetour, 'Date de retour', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.dateRetour, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.dateRetour) }}
+</div>
+
+<button class="btn btn-primary">
+    {{ button_label|default('Enregistrer') }}
+</button>
+
 {{ form_end(form) }}

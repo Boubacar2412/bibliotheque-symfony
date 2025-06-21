@@ -1,30 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Emprunt{% endblock %}
+{% block title %}Détail Emprunt{% endblock %}
 
 {% block body %}
-    <h1>Emprunt</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ emprunt.id }}</td>
-            </tr>
-            <tr>
-                <th>DateEmprunt</th>
-                <td>{{ emprunt.dateEmprunt ? emprunt.dateEmprunt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>DateRetour</th>
-                <td>{{ emprunt.dateRetour ? emprunt.dateRetour|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_emprunt_index') }}">back to list</a>
-
-    <a href="{{ path('app_emprunt_edit', {'id': emprunt.id}) }}">edit</a>
-
-    {{ include('emprunt/_delete_form.html.twig') }}
+<div class="container py-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h2 class="mb-0">Détail de l'emprunt #{{ emprunt.id }}</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-bordered mb-0">
+                <tbody>
+                    <tr>
+                        <th scope="row" class="w-25">ID</th>
+                        <td>{{ emprunt.id }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Date d'emprunt</th>
+                        <td>{{ emprunt.dateEmprunt ? emprunt.dateEmprunt|date('Y-m-d H:i:s') : '—' }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Date de retour</th>
+                        <td>{{ emprunt.dateRetour ? emprunt.dateRetour|date('Y-m-d H:i:s') : '—' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer text-end">
+            <a href="{{ path('app_emprunt_index') }}" class="btn btn-secondary me-2">Retour à la liste</a>
+            <a href="{{ path('app_emprunt_edit', {'id': emprunt.id}) }}" class="btn btn-primary">Modifier</a>
+            {{ include('emprunt/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}

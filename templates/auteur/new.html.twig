@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Auteur{% endblock %}
+{% block title %}Ajouter un nouvel auteur{% endblock %}
 
 {% block body %}
-    <h1>Create new Auteur</h1>
+<div class="container py-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Ajouter un nouvel auteur</h2>
+        </div>
 
-    {{ include('auteur/_form.html.twig') }}
+        <div class="card-body">
+            {{ include('auteur/_form.html.twig', {'button_label': 'Créer'}) }}
+        </div>
 
-    <a href="{{ path('app_auteur_index') }}">back to list</a>
+        <div class="card-footer text-end">
+            <a href="{{ path('app_auteur_index') }}" class="btn btn-secondary">Retour à la liste</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

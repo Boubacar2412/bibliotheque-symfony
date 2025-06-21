@@ -47,32 +47,28 @@ L'application respecte une architecture MVC propre, avec un design moderne, flui
 
 1. Cloner le dépôt :  
    ```bash
-   git clone https://github.com/ton-utilisateur/ton-projet.git
+   git clone https://github.com/Boubacar2412/bibliotheque-symfony
    cd ton-projet
 Installer les dépendances :
 
 bash
-Copier
-Modifier
+
 composer install
 Configurer la base de données dans .env (exemple) :
 
 ini
-Copier
-Modifier
-DATABASE_URL="mysql://root:motdepasse@127.0.0.1:3306/bibliotheque"
+
+DATABASE_URL="mysql://root:@127.0.0.1:3306/bibliotheque?serverVersion=8.0"
 Créer la base et exécuter les migrations :
 
 bash
-Copier
-Modifier
+
 php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 Lancer le serveur local Symfony :
 
 bash
-Copier
-Modifier
+
 symfony server:start
 Accéder à l'application via : http://localhost:8000
 

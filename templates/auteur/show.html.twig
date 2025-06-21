@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Auteur{% endblock %}
+{% block title %}Détails de l'auteur{% endblock %}
 
 {% block body %}
-    <h1>Auteur</h1>
+<div class="container py-4">
+    <h1 class="mb-4">Détails de l'auteur</h1>
 
-    <table class="table">
+    <table class="table table-bordered">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th style="width: 20%;">Id</th>
                 <td>{{ auteur.id }}</td>
             </tr>
             <tr>
@@ -16,19 +17,21 @@
                 <td>{{ auteur.nom }}</td>
             </tr>
             <tr>
-                <th>Prenom</th>
+                <th>Prénom</th>
                 <td>{{ auteur.prenom }}</td>
             </tr>
             <tr>
-                <th>DateNaissance</th>
-                <td>{{ auteur.dateNaissance ? auteur.dateNaissance|date('Y-m-d') : '' }}</td>
+                <th>Date de naissance</th>
+                <td>{{ auteur.dateNaissance ? auteur.dateNaissance|date('Y-m-d') : 'Non renseignée' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_auteur_index') }}">back to list</a>
+    <div class="mt-4">
+        <a href="{{ path('app_auteur_index') }}" class="btn btn-secondary me-2">Retour à la liste</a>
+        <a href="{{ path('app_auteur_edit', {'id': auteur.id}) }}" class="btn btn-warning me-2">Modifier</a>
 
-    <a href="{{ path('app_auteur_edit', {'id': auteur.id}) }}">edit</a>
-
-    {{ include('auteur/_delete_form.html.twig') }}
+        {{ include('auteur/_delete_form.html.twig') }}
+    </div>
+</div>
 {% endblock %}

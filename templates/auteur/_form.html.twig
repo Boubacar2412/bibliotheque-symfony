@@ -1,4 +1,23 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="mb-3">
+    {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.nom) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.prenom, 'Prénom', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.prenom) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.dateNaissance, 'Date de naissance', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.dateNaissance, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.dateNaissance) }}
+</div>
+
+<button type="submit" class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+
 {{ form_end(form) }}
